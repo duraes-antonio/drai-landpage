@@ -7,3 +7,5 @@ export const colors = {
     red: 'rgba(210, 0, 0, 1)',
     red60: 'rgba(210, 0, 0, 0.6)',
 };
+
+export const fontDefault = "'Mulish', sans-serif";

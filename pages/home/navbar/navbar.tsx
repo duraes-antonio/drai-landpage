@@ -2,6 +2,10 @@ import React, { memo } from 'react';
 import styled from 'styled-components';
 import { colors } from '../../../styles/variables';
 import SvgLogo from '../../../shared/components/svg/logo';
+import {
+    ButtonContained,
+    ButtonOutlined,
+} from '../../../shared/components/buttons/buttons';
 
 const Container = styled.nav`
     background-color: ${colors.grey5};
@@ -22,10 +26,10 @@ const ActionsArea = styled.div`
 function Navbar(): JSX.Element {
     return (
         <Container>
-            <SvgLogo height={'30px'} style={{ height: '48px' }} />
+            <SvgLogo height={'30px'} style={{ height: 42 }} />
             <ActionsArea>
-                <button>Teste</button>
-                <button>Teste</button>
+                <ButtonOutlined>Registrar-se</ButtonOutlined>
+                <ButtonContained>Entrar</ButtonContained>
             </ActionsArea>
         </Container>
     );
