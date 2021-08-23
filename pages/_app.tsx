@@ -1,38 +1,44 @@
-import '../styles/globals.css';
-import type { AppProps } from 'next/app';
-import { createTheme } from '@material-ui/core';
-import { blue, grey, red } from '@material-ui/core/colors';
 import { ThemeProvider } from '@material-ui/core/styles';
+import Navbar from './home/navbar/navbar';
+import { HomePage } from './home/home';
+import styled, { css } from 'styled-components';
+import { theme } from '../shared/styles/themes';
+import '../shared/styles/globals.css';
 
-export const theme = createTheme({
-    palette: {
-        primary: {
-            main: blue[500],
-        },
-        secondary: {
-            main: grey[600],
-        },
-        error: {
-            main: red[600],
-        },
-    },
-    typography: {
-        fontFamily: [
-            'Mulish',
-            'Roboto',
-            '"Helvetica Neue"',
-            'Arial',
-            'sans-serif',
-        ].join(','),
-    },
-});
+const centerFlexStyle = css`
+    display: flex;
+    justify-content: center;
+`;
 
-function MyApp({ Component, pageProps }: AppProps) {
+const PageWrapper = styled.div`
+    ${centerFlexStyle};
+    width: 100%;
+    max-width: min(92%, 1048px);
+    box-sizing: border-box;
+    min-height: 100vh;
+    height: 100%;
+    background-color: #ffffff;
+    padding: 48px 40px;
+`;
+
+const Content = styled.div`
+    ${centerFlexStyle};
+    background-color: #fdfdfd;
+    min-height: 100vh;
+    margin-top: 60px;
+`;
+
+export function MainApp() {
     return (
         <ThemeProvider theme={theme}>
-            <Component {...pageProps} />
+            <Navbar />
+            <Content>
+                <PageWrapper>
+                    <HomePage />
+                </PageWrapper>
+            </Content>
         </ThemeProvider>
     );
 }
 
-export default MyApp;
+export default MainApp;

@@ -1,19 +1,21 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import Navbar from './navbar/navbar';
+import BodySections from './body/body-sections';
 
-const Title = styled.h1`
-    color: red;
-    border: 2px solid blue;
+const Main = styled.main`
+    display: flex;
+    justify-content: center;
+    width: 100%;
     box-sizing: border-box;
+    min-height: 100vh;
+    height: 100%;
 `;
 
 export function HomePage(): JSX.Element {
     return (
-        <div>
-            <Navbar />
-            <Title>Hello world!</Title>
-        </div>
+        <Main>
+            <BodySections />
+        </Main>
     );
 }
 

@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import { colors } from '../../../styles/variables';
+import { colors } from '../../../shared/styles/variables';
 import SvgLogo from '../../../shared/components/svg/logo';
 import {
     ButtonContained,
@@ -14,6 +14,10 @@ const Container = styled.nav`
     align-items: center;
     justify-content: space-between;
     padding: 14px 32px;
+    position: fixed;
+    min-width: 100vw;
+    z-index: 1;
+    top: 0;
 `;
 
 const ActionsArea = styled.div`
