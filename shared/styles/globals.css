@@ -17,3 +17,12 @@ a {
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
+
+::selection {
+    background-color: #2196f3;
+    color: white;
+}
+
+::inactive-selection {
+    background-color: rgba(33, 150, 243, 0.75);
+}

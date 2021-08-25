@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import { colors } from '../../../shared/styles/variables';
+import { colors, spacingPixelsX } from '../../../shared/styles/variables';
 import SvgLogo from '../../../shared/components/svg/logo';
 import {
     ButtonContained,
@@ -13,7 +13,7 @@ const Container = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 32px;
+    padding: 14px ${spacingPixelsX(4)};
     position: fixed;
     min-width: 100vw;
     z-index: 1;
@@ -23,7 +23,7 @@ const Container = styled.nav`
 const ActionsArea = styled.div`
     display: grid;
     grid-template-columns: repeat(2, auto);
-    grid-column-gap: 16px;
+    grid-column-gap: ${spacingPixelsX(2)};
     justify-self: flex-end;
 `;
 

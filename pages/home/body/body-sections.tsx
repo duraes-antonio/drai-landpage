@@ -7,7 +7,7 @@ import { sections } from '../../../shared/constants/sections';
 
 const Container = styled.div`
     display: grid;
-    grid-row-gap: 120px;
+    grid-row-gap: ${spacingPixelsX(15)};
 
     @media (max-width: ${breakpoints.sm}) {
         grid-row-gap: ${spacingPixelsX(8)};
@@ -22,7 +22,8 @@ function BodySections(): JSX.Element {
                     style={{ direction: index % 2 === 0 ? 'revert' : 'rtl' }}
                     title={s.title}
                     description={s.description}
-                    id={`section-${index}`}
+                    id={`section-${index + 1}`}
+                    key={`section-${index + 1}`}
                 >
                     <Image
                         priority={false}

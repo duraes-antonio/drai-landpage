@@ -8,7 +8,7 @@ export const colors = {
     red60: 'rgba(210, 0, 0, 0.6)',
 };
 
-export const fontDefault = "'Mulish', sans-serif";
+export const fontDefault = "'Raleway', 'Mulish', sans-serif";
 
 export const breakpoints = {
     xs: '0px',
@@ -18,6 +18,6 @@ export const breakpoints = {
     xl: '1920px',
 };
 
-export const spacing = 8;
+export const spacing = 0.5;
 
-export const spacingPixelsX = (n = 1) => `${n * spacing}px`;
+export const spacingPixelsX = (n = 1) => `${n * spacing}rem`;

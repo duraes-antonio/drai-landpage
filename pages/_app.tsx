@@ -1,9 +1,12 @@
 import { ThemeProvider } from '@material-ui/core/styles';
 import Navbar from './home/navbar/navbar';
-import { HomePage } from './home/home';
+import HomePage from './home/home';
 import styled, { css } from 'styled-components';
 import { theme } from '../shared/styles/themes';
 import '../shared/styles/globals.css';
+import Footer from './home/footer/footer';
+import React, { CSSProperties } from 'react';
+import { spacingPixelsX } from '../shared/styles/variables';
 
 const centerFlexStyle = css`
     display: flex;
@@ -18,7 +21,14 @@ const PageWrapper = styled.div`
     min-height: 100vh;
     height: 100%;
     background-color: #ffffff;
-    padding: 48px 40px;
+    padding: ${spacingPixelsX(6)} ${spacingPixelsX(5)};
+`;
+
+const FooterWrapper = styled.div`
+    ${centerFlexStyle};
+    background-color: rgba(30, 144, 255, 0.68);
+    box-sizing: border-box;
+    min-width: 100%;
 `;
 
 const Content = styled.div`
@@ -28,15 +38,26 @@ const Content = styled.div`
     margin-top: 60px;
 `;
 
+const footerStyle: CSSProperties = {
+    maxWidth: 'min(92%, 1048px)',
+};
+
+const Header = styled.header``;
+
 export function MainApp() {
     return (
         <ThemeProvider theme={theme}>
-            <Navbar />
+            <Header>
+                <Navbar />
+            </Header>
             <Content>
                 <PageWrapper>
                     <HomePage />
                 </PageWrapper>
             </Content>
+            <FooterWrapper>
+                <Footer style={footerStyle} />
+            </FooterWrapper>
         </ThemeProvider>
     );
 }
