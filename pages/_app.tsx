@@ -7,6 +7,8 @@ import '../shared/styles/globals.css';
 import Footer from './home/footer/footer';
 import React, { CSSProperties } from 'react';
 import { spacingPixelsX } from '../shared/styles/variables';
+import { ServerModal } from '../shared/components/dialog-wrapper/dialog-wrapper';
+import { ModalProvider } from '../shared/contexts/modal-context';
 
 const centerFlexStyle = css`
     display: flex;
@@ -42,23 +44,29 @@ const footerStyle: CSSProperties = {
     maxWidth: 'min(92%, 1048px)',
 };
 
-const Header = styled.header``;
+const Header = styled.header`
+    height: 70px;
+`;
 
 export function MainApp() {
     return (
-        <ThemeProvider theme={theme}>
-            <Header>
-                <Navbar />
-            </Header>
-            <Content>
-                <PageWrapper>
-                    <HomePage />
-                </PageWrapper>
-            </Content>
-            <FooterWrapper>
-                <Footer style={footerStyle} />
-            </FooterWrapper>
-        </ThemeProvider>
+        <ModalProvider>
+            <ServerModal />
+            <ThemeProvider theme={theme}>
+                <Header>
+                    <Navbar />
+                </Header>
+
+                <Content>
+                    <PageWrapper>
+                        <HomePage />
+                    </PageWrapper>
+                </Content>
+                <FooterWrapper>
+                    <Footer style={footerStyle} />
+                </FooterWrapper>
+            </ThemeProvider>
+        </ModalProvider>
     );
 }
 

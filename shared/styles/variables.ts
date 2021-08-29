@@ -19,5 +19,9 @@ export const breakpoints = {
 };
 
 export const spacing = 0.5;
+export const remInPixels = 16;
+
+export const pxToRem = (nPixels: number, oneRemInPixels = remInPixels) =>
+    `${nPixels / oneRemInPixels}rem`;
 
 export const spacingPixelsX = (n = 1) => `${n * spacing}rem`;

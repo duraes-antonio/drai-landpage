@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useContext } from 'react';
 import styled from 'styled-components';
 import { colors, spacingPixelsX } from '../../../shared/styles/variables';
 import SvgLogo from '../../../shared/components/svg/logo';
@@ -6,6 +6,7 @@ import {
     ButtonContained,
     ButtonOutlined,
 } from '../../../shared/components/buttons/buttons';
+import { ModalContext } from '../../../shared/contexts/modal-context';
 
 const Container = styled.nav`
     background-color: ${colors.grey5};
@@ -28,11 +29,20 @@ const ActionsArea = styled.div`
 `;
 
 function Navbar(): JSX.Element {
+    const { setConfig } = useContext(ModalContext);
     return (
         <Container>
             <SvgLogo height={'30px'} style={{ height: 42 }} />
             <ActionsArea>
-                <ButtonOutlined>Registrar-se</ButtonOutlined>
+                <ButtonOutlined
+                    onClick={() =>
+                        setConfig?.({
+                            content: 'Raninha',
+                        })
+                    }
+                >
+                    Registrar-se
+                </ButtonOutlined>
                 <ButtonContained>Entrar</ButtonContained>
             </ActionsArea>
         </Container>
