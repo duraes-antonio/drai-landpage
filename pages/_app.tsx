@@ -7,7 +7,7 @@ import '../shared/styles/globals.css';
 import Footer from './home/footer/footer';
 import React, { CSSProperties } from 'react';
 import { spacingPixelsX } from '../shared/styles/variables';
-import { ServerModal } from '../shared/components/dialog-wrapper/dialog-wrapper';
+import { ServerModal } from '../shared/components/modal-wrapper/modal-wrapper';
 import { ModalProvider } from '../shared/contexts/modal-context';
 
 const centerFlexStyle = css`
