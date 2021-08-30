@@ -50,13 +50,12 @@ const Header = styled.header`
 
 export function MainApp() {
     return (
-        <ModalProvider>
-            <ServerModal />
-            <ThemeProvider theme={theme}>
+        <ThemeProvider theme={theme}>
+            <ModalProvider>
+                <ServerModal />
                 <Header>
                     <Navbar />
                 </Header>
-
                 <Content>
                     <PageWrapper>
                         <HomePage />
@@ -65,8 +64,8 @@ export function MainApp() {
                 <FooterWrapper>
                     <Footer style={footerStyle} />
                 </FooterWrapper>
-            </ThemeProvider>
-        </ModalProvider>
+            </ModalProvider>
+        </ThemeProvider>
     );
 }
 

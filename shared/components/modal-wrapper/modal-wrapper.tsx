@@ -12,18 +12,13 @@ function _ServerModal() {
     const onClose = () => {
         config?.onClose?.();
         setConfig?.();
-
-        if (rootRef?.current) {
-            rootRef.current.hidden = true;
-        }
     };
     return (
         <Modal
             disablePortal
             disableEnforceFocus
-            disableAutoFocus
+            closeAfterTransition
             open={!!config?.content}
-            closeAfterTransition={true}
             onClose={() => onClose()}
             aria-labelledby="server-modal-title"
             aria-describedby="server-modal-description"

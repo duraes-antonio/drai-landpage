@@ -15,10 +15,13 @@ const modalStyles = makeStyles((theme: Theme) =>
 );
 
 const ModalContentWrapper = styled.div`
-    border-radius: ${pxToRem(25)};
-    background-color: white;
-    max-width: min(${pxToRem(840)}, 95%);
-    box-shadow: 0 ${pxToRem(4)} ${pxToRem(30)} rgba(0, 0, 0, 0.25);
+  border-radius: ${pxToRem(25)};
+  background-color: white;
+  max-width: min(${pxToRem(840)}, 95%);
+  box-shadow: 0 ${pxToRem(4)} ${pxToRem(30)} rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  display: flex;
+  width: 100%;
 `;
 
 const backdropStyle: CSSProperties = {
@@ -27,4 +30,4 @@ const backdropStyle: CSSProperties = {
     width: '100vw',
 };
 
-export { backdropStyle, modalStyles, ModalContentWrapper };
+export {backdropStyle, modalStyles, ModalContentWrapper};
