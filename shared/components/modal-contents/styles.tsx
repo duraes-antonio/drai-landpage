@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { breakpoints, colors, pxToRem } from '../../styles/variables';
 import { CSSProperties } from 'react';
+import { ButtonContained } from '../buttons/buttons';
 
 export const ContentContainer = styled.div`
     min-width: 100%;
@@ -44,3 +45,27 @@ export const formStyle: CSSProperties = {
     display: 'grid',
     gridRowGap: pxToRem(16),
 };
+
+const fontStyle = css`
+    color: ${colors.grey};
+    font-family: Mulish;
+    font-size: ${pxToRem(13)};
+    font-weight: 600;
+`;
+
+export const SignInText = styled.a`
+    ${fontStyle};
+    cursor: pointer;
+`;
+
+export const SignInLink = styled(SignInText)`
+    color: ${colors.primary};
+    margin: 0;
+`;
+
+export const FormSubmitButton = styled(ButtonContained)`
+    text-transform: capitalize !important;
+    letter-spacing: 0.25px;
+    width: max-content;
+    align-self: center;
+`;
