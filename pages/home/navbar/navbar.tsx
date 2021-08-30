@@ -7,6 +7,7 @@ import {
     ButtonOutlined,
 } from '../../../shared/components/buttons/buttons';
 import { ModalContext } from '../../../shared/contexts/modal-context';
+import { ModalUserRegister } from '../../../shared/components/modal-contents/modal-user-register';
 
 const Container = styled.nav`
     background-color: ${colors.grey5};
@@ -37,7 +38,7 @@ function Navbar(): JSX.Element {
                 <ButtonOutlined
                     onClick={() =>
                         setConfig?.({
-                            content: 'Raninha',
+                            content: <ModalUserRegister />,
                         })
                     }
                 >
