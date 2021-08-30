@@ -1,6 +1,5 @@
 import { Section } from '../types/section';
-
-const pathFolderImages = '/static/images/';
+import { pathFolderImages } from './paths';
 
 export const sections: Section[] = [
     {

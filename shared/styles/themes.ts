@@ -16,6 +16,7 @@ export const theme = createTheme({
     typography: {
         fontFamily: [
             'Mulish',
+            'Raleway',
             'Roboto',
             '"Helvetica Neue"',
             'Arial',
