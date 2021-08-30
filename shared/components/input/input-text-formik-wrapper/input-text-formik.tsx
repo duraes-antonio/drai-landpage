@@ -3,7 +3,7 @@ import { InputTextComponent } from '../../../types/input-text';
 import { FieldProps } from 'formik';
 import { InputText } from '../input-text/input-text';
 import { colors } from '../../../styles/variables';
-import { InputContainer, InputHint, InputLabel } from './styles';
+import { InputContainer, InputErrorHint, InputLabel } from './styles';
 
 export interface InputTextFormikProps
     extends FieldProps,
@@ -16,13 +16,16 @@ function _InputTextAdapter(props: InputTextFormikProps): JSX.Element {
 
     return (
         <InputContainer>
-            <InputLabel color={color} error={error} htmlFor={props.id}>
+            <InputLabel error={error} htmlFor={props.id}>
                 {field.name}
             </InputLabel>
             <InputText {...field} {...restProps} color={color} error={error} />
-            <InputHint style={{ opacity: error ? 1 : 0 }}>
+            <InputErrorHint
+                htmlFor={props.id}
+                style={{ opacity: error ? 1 : 0 }}
+            >
                 {form.errors[field.name] ?? ''}
-            </InputHint>
+            </InputErrorHint>
         </InputContainer>
     );
 }
