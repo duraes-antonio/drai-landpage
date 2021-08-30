@@ -26,7 +26,6 @@ function ModalUserRegister(): JSX.Element {
         email: '',
         password: '',
     });
-    console.log(formSchema);
     const submitRegister = (values, actions) => alert(JSON.stringify(values));
     return (
         <ContentContainer>
