@@ -7,8 +7,8 @@ import {
     ModalContentWrapper,
     modalStyles,
 } from './styles';
-import { animated, useSpring } from 'react-spring';
-import { Fade } from '@material-ui/core';
+import { useSpring } from 'react-spring';
+import { AnimateSharedLayout } from 'framer-motion';
 
 function _ServerModal() {
     const { config, setConfig } = useContext(ModalContext);
@@ -17,26 +17,20 @@ function _ServerModal() {
         from: {
             width: '100%',
             opacity: 0,
-            delay: 3600,
-            height: 'auto',
         },
     }));
 
     useEffect(() => {
-        console.log(contentRef?.current);
         set({
             from: {
+                width: '100%',
                 opacity: 0,
-                delay: 3600,
-                height: 'auto',
             },
             to: {
-                delay: 3600,
                 opacity: 1,
-                height: 'auto',
             },
         });
-    }, [config?.content, contentRef]);
+    }, [config?.content]);
 
     const rootRef = React.useRef<HTMLDivElement>(null);
     const modalClasses = modalStyles();
@@ -49,6 +43,7 @@ function _ServerModal() {
             disablePortal
             disableEnforceFocus
             closeAfterTransition
+            tabIndex={-1}
             open={!!config?.content}
             onClose={() => onClose()}
             aria-labelledby="server-modal-title"
@@ -57,14 +52,17 @@ function _ServerModal() {
             BackdropProps={{ style: backdropStyle }}
             ref={rootRef}
         >
-            <Fade in={!!config?.content}>
-                <ModalContentWrapper>
-                    <animated.div style={fadeIn} ref={contentRef}>
-                        {config?.content}
-                    </animated.div>
+            <AnimateSharedLayout>
+                <ModalContentWrapper
+                    layout
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                >
+                    {config?.content}
                     <CloseButton onClick={() => onClose()} tabIndex={0} />
                 </ModalContentWrapper>
-            </Fade>
+            </AnimateSharedLayout>
         </Modal>
     );
 }

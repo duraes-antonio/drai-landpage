@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { colors, pxToRem } from '../../styles/variables';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { MdCancel } from 'react-icons/md';
-import { animated } from 'react-spring';
+import { motion } from 'framer-motion';
 
 const modalStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -16,7 +16,7 @@ const modalStyles = makeStyles((theme: Theme) =>
     })
 );
 
-const ModalContentWrapper = styled(animated.div)`
+const ModalContentWrapper = styled(motion.div)`
     border-radius: ${pxToRem(25)};
     background-color: white;
     max-width: min(${pxToRem(840)}, 95%);

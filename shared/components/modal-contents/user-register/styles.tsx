@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { breakpoints, colors, pxToRem } from '../../../styles/variables';
 import { CSSProperties } from 'react';
 import { ButtonContained } from '../../buttons/buttons';
+import { motion } from 'framer-motion';
 
 export const ContentContainer = styled.div`
     min-width: 100%;
@@ -31,7 +32,7 @@ export const FormWrapper = styled.main`
     }
 `;
 
-export const ImageWrapper = styled.div`
+export const ImageWrapper = styled(motion.div)`
     position: relative;
     overflow: hidden;
 

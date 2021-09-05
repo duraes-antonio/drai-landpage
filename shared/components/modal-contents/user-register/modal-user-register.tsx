@@ -3,12 +3,9 @@ import Image from 'next/image';
 import { pathFolderImages } from '../../../constants/paths';
 import {
     ContentContainer,
-    FormSubmitButton,
     FormTitle,
     FormWrapper,
     ImageWrapper,
-    SignInLink,
-    SignInText,
 } from './styles';
 import { setLocale } from 'yup';
 import { PT_LOCALE } from '../../../validations/locale/yup';
@@ -32,7 +29,15 @@ function ModalUserRegister(): JSX.Element {
         password: '',
     });
     const [loading, setLoading] = useState(false);
-    const submitRegister = (value) => alert(JSON.stringify(values));
+    const submitRegister = () => {
+        setLoading(true);
+        return new Promise(function (resolve) {
+            setTimeout((a) => {
+                setLoading(false);
+                resolve(a);
+            }, 3000);
+        });
+    };
     const loginWithSocialMedia = (mediaName: SocialMedia) => {
         console.log(mediaName);
         return mediaName;
@@ -49,18 +54,11 @@ function ModalUserRegister(): JSX.Element {
             <FormWrapper>
                 <FormTitle>Criar conta</FormTitle>
                 <FormUserRegister
+                    onLoginLinkClick={openModalLogin}
                     initialValues={initialValues}
                     submitHandler={submitRegister}
+                    isSubmitting={loading}
                 />
-                <SignInText onClick={openModalLogin}>
-                    Já tem uma conta? <SignInLink>Faça login</SignInLink>
-                </SignInText>
-                <FormSubmitButton
-                    onClick={() => setLoading(true)}
-                    loading={loading}
-                >
-                    Cadastrar
-                </FormSubmitButton>
                 <SocialMediaButtons
                     onSelect={(social) => loginWithSocialMedia(social)}
                 />
