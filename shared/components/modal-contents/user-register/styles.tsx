@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
-import { breakpoints, colors, pxToRem } from '../../styles/variables';
+import { breakpoints, colors, pxToRem } from '../../../styles/variables';
 import { CSSProperties } from 'react';
-import { ButtonContained } from '../buttons/buttons';
+import { ButtonContained } from '../../buttons/buttons';
 
 export const ContentContainer = styled.div`
     min-width: 100%;
@@ -34,7 +34,10 @@ export const FormWrapper = styled.main`
 export const ImageWrapper = styled.div`
     position: relative;
     overflow: hidden;
-    opacity: 0.25;
+
+    img {
+        opacity: 0.25;
+    }
 
     @media (max-width: ${breakpoints.sm}) {
         display: none;
@@ -56,6 +59,7 @@ const fontStyle = css`
 export const SignInText = styled.a`
     ${fontStyle};
     cursor: pointer;
+    width: max-content;
 `;
 
 export const SignInLink = styled(SignInText)`

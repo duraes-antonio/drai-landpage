@@ -7,7 +7,8 @@ import {
     ButtonOutlined,
 } from '../../../shared/components/buttons/buttons';
 import { ModalContext } from '../../../shared/contexts/modal-context';
-import { ModalUserRegister } from '../../../shared/components/modal-contents/modal-user-register';
+import { ModalUserRegister } from '../../../shared/components/modal-contents/user-register/modal-user-register';
+import { ModalUserLogin } from '../../../shared/components/modal-contents/user-login/modal-user-login';
 
 const Container = styled.nav`
     background-color: ${colors.grey5};
@@ -31,20 +32,29 @@ const ActionsArea = styled.div`
 
 function Navbar(): JSX.Element {
     const { setConfig } = useContext(ModalContext);
+
+    function openModalRegister() {
+        setConfig?.({
+            content: <ModalUserRegister />,
+        });
+    }
+
+    function openModalLogin() {
+        setConfig?.({
+            content: <ModalUserLogin />,
+        });
+    }
+
     return (
         <Container>
             <SvgLogo height={'30px'} style={{ height: 42 }} />
             <ActionsArea>
-                <ButtonOutlined
-                    onClick={() =>
-                        setConfig?.({
-                            content: <ModalUserRegister />,
-                        })
-                    }
-                >
+                <ButtonOutlined onClick={openModalRegister}>
                     Registrar-se
                 </ButtonOutlined>
-                <ButtonContained>Entrar</ButtonContained>
+                <ButtonContained onClick={openModalLogin}>
+                    Entrar
+                </ButtonContained>
             </ActionsArea>
         </Container>
     );
