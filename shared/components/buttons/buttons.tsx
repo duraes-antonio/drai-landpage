@@ -2,7 +2,9 @@ import React from 'react';
 import ButtonBase from './button-base';
 import { ButtonProps } from '@material-ui/core/Button/Button';
 
-export function ButtonContained(props: ButtonProps): JSX.Element {
+export function ButtonContained(
+    props: ButtonProps & { loading?: boolean }
+): JSX.Element {
     return (
         <ButtonBase {...props} variant="contained">
             {props.children}

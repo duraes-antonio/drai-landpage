@@ -1,5 +1,11 @@
 import React, { memo } from 'react';
-import { alpha, Button, Theme, withStyles } from '@material-ui/core';
+import {
+    alpha,
+    Button,
+    CircularProgress,
+    Theme,
+    withStyles,
+} from '@material-ui/core';
 import { ButtonProps } from '@material-ui/core/Button/Button';
 
 const CustomButton = withStyles((theme: Theme) => ({
@@ -14,13 +20,15 @@ const CustomButton = withStyles((theme: Theme) => ({
     },
 }))(Button);
 
-function ButtonBase(props: ButtonProps) {
+function ButtonBase(props: ButtonProps & { loading?: boolean }) {
     return (
         <CustomButton
             {...props}
             color={'primary'}
+            disabled={props?.disabled || props?.loading}
             disableElevation
             disableFocusRipple
+            startIcon={props.loading && <CircularProgress size={18} />}
         >
             {props.children}
         </CustomButton>
